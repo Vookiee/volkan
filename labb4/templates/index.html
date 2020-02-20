@@ -122,7 +122,7 @@
         const form = document.querySelector('form');
         const postData = Object.values(form).reduce((obj,field) => { obj[field.name] = field.value; return obj }, {});
         console.log(postData);
-        sendData('http://localhost:5000', postData)
+        sendData('http://localhost:5000/', postData)
             .then((data) => {
             console.log(data); // JSON data parsed by `response.json()` call
         });
