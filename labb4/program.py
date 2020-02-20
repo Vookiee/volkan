@@ -40,6 +40,16 @@ def register():
                            address=address, postnmr =postnmr, stad=stad, tele=telnmr,
                            email=email,pw=losenord, pay=betala, offer=offer,
                            for_mat=form, kommentar=kommentar)
+@app.route('/num')
+def num():
+    rng = randint(10,200)
+    rng1 = randint(300,1000)
+    rng2 = randint(5,10)
+    return jsonify(rng, rng1, rng2)
+
+
+
+
 # @app.route('/num')
 # def num():
 #     rng = randint(10,200)
