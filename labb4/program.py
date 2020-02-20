@@ -1,6 +1,7 @@
-from flask import Flask, render_template, jsonify
-from flask import request
-import random
+from flask import Flask, render_template, jsonify, request
+import requests
+from random import randint
+import sqlite3
 app = Flask(__name__)
 
 @app.route('/')
@@ -35,27 +36,38 @@ def register():
     offer = info[9]
     form = info[10]
     kommentar = info[11]
-    return render_template('index.html', fname = f_name, ename =e_name, address=address, postnmr =postnmr, stad=stad, tele=telnmr, email=email,pw=losenord, pay=betala, offer=offer, for_mat=form, kommentar=kommentar)
+    return render_template('index.html', fname = f_name, ename =e_name, 
+                           address=address, postnmr =postnmr, stad=stad, tele=telnmr,
+                           email=email,pw=losenord, pay=betala, offer=offer,
+                           for_mat=form, kommentar=kommentar)
+# @app.route('/num')
+# def num():
+#     rng = randint(10,200)
+#     rng1 = randint(300,1000)
+#     rng2 = randint(5,10)
+#     return jsonify(rng, rng1, rng2)
 
-@app.route('/')
-def postdata():
-    v = randint(1,100)
-    conn = sqlite3.connect('databas.db')
-    c = conn.cursor()
-    #c.execute("""CREATE TABLE data VALUES (rng integer)""")
-    c.execute('INSERT INTO data VALUES (v)')
-    conn.commit()
-    return data
-
-@app.route('/', ['GET'])
-def postdata():
-      #r = requests.post('https://en7w1brogvxyv.x.pipedream.net', json=data_dict)
-      conn = sqlite3.connect('databas.db')
-      c = conn.cursor()
-      c.execute('SELECT * FROM data')
-      data = c.fetchall()
-      conn.commit()
-      return justify(data)
+# def getnum():
+#     svar = requests.get('http://localhost:5000/num')
+#     data = svar.json()
+    
+#     conn = sqlite3.connect('databas.db')
+#     c = conn.cursor()
+#     c.execute("""CREATE TABLE volkan (rng,rgn1,rng2)""")
+#     c.execute('INSERT INTO volkan (rng,rng1,rng2) VALUES (?,?,?)',data)
+#     c.execute('SELECT * FROM volkan')
+#     print(c.fetchall())
+#     conn.commit()
+#     conn.close()
+# getnum()
+# @app.route('/', ['GET'])
+# def postdata():
+#       #r = requests.post('https://en7w1brogvxyv.x.pipedream.net', json=data_dict)
+#       conn = sqlite3.connect('databas.db')
+#       c = conn.cursor()
+#       c.execute('SELECT * FROM data')
+#       data = c.fetchall()
+#       return justify(data)
 
 
 if __name__ == '__main__': 
