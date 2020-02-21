@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .table{
+            display: flex;
+            flex-direction: column;
+            border:1px solid #333;
+        }
+        h1 {
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <p>RNG: {{rng}}</p>
-    <p>RNG1: {{rng1}}</p>
-    <p>RNG2: {{rng2}}</p>
+    <h1>Välkommen!</h1>
+    <div class = "table">
+        <p><b>RNG:</b> {{rng}}</p>
+        <p><b>RNG1:</b>: {{rng1}}</p>
+        <p><b>RNG2:</b> {{rng2}}</p>
+    </div>
 </body>
 </html>

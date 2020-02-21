@@ -41,47 +41,6 @@ def register():
                            address=address, postnmr =postnmr, stad=stad, tele=telnmr,
                            email=email,pw=losenord, pay=betala, offer=offer,
                            for_mat=form, kommentar=kommentar)
-@app.route('/num')
-def num():
-    while True:
-        time.sleep(5)
-        rng = randint(10,200)
-        rng1 = randint(300,1000)
-        rng2 = randint(5,10)
-        return jsonify(rng, rng1, rng2)
-
-
-
-
-# @app.route('/num')
-# def num():
-#     rng = randint(10,200)
-#     rng1 = randint(300,1000)
-#     rng2 = randint(5,10)
-#     return jsonify(rng, rng1, rng2)
-
-# def getnum():
-#     svar = requests.get('http://localhost:5000/num')
-#     data = svar.json()
-    
-#     conn = sqlite3.connect('databas.db')
-#     c = conn.cursor()
-#     c.execute("""CREATE TABLE volkan (rng,rgn1,rng2)""")
-#     c.execute('INSERT INTO volkan (rng,rng1,rng2) VALUES (?,?,?)',data)
-#     c.execute('SELECT * FROM volkan')
-#     print(c.fetchall())
-#     conn.commit()
-#     conn.close()
-# getnum()
-# @app.route('/', ['GET'])
-# def postdata():
-#       #r = requests.post('https://en7w1brogvxyv.x.pipedream.net', json=data_dict)
-#       conn = sqlite3.connect('databas.db')
-#       c = conn.cursor()
-#       c.execute('SELECT * FROM data')
-#       data = c.fetchall()
-#       return justify(data)
-
 
 if __name__ == '__main__': 
     app.run()
