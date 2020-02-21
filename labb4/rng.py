@@ -1,18 +1,17 @@
-from flask import Flask, render_template, jsonify, request
+
 import requests
 from random import randint
-import sqlite3
 import time
+import json
 
 
-def num():
-    while True:
-        time.sleep(5)
-        rng = randint(10,200)
-        rng1 = randint(300,1000)
-        rng2 = randint(5,10)
-        return jsonify(rng, rng1, rng2)
-num()
+time.sleep(5)
+rng = randint(10,200)
+rng1 = randint(300,1000)
+rng2 = randint(5,10)
+s = {'rng':rng,'rng1':rng1, 'rng2':rng2}
 
-send = requests.post('localhost:5050', json = num())
-print(send.status_code)
+r = requests.post('http://localhost:5050/rng', json = s)
+print(r.status_code)
+print(r.json())
+print(r.headers)
